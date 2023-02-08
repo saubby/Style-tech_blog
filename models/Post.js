@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequlize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const { post } = require('../controllers/dashboard-routes');
+//const { post } = require('../controllers/dashboard-routes');
 
 class Post extends Model {}
 
@@ -10,18 +10,18 @@ Post.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autiIncrement:true
+        autoIncrement:true
     },
-    tittle: {
+    title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
     post_text: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-            len: [1]
-        }
+        // validate: {
+        //     len: [1]
+        // }
     },
     user_id: {
         type: DataTypes.INTEGER,

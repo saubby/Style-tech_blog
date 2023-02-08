@@ -21,19 +21,15 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: Post,
-                    attributes: ['id', 'post_text', 'tittle', 'created_at'],
+                    attributes: ['id', 'post_text', 'title', 'created_at'],
                 },
                 {
                     model: Comment,
                     attributes: ['id', 'comment_text', 'created_at'],
                     include: {
                         model: Post,
-                        attributes: ['tittle']
+                        attributes: ['title', 'post_id']
                     },
-                },
-                {
-                    model: Post,
-                    attributes: ['tittle']
                 },
             ],
         });
@@ -67,7 +63,7 @@ router.post('/login', async (req, res) => {
             where: { username: req.body.username },
         });
         if (!userData) {
-            res.status(400).json({ message: 'Not a valid username' });
+            res.status(400).json({ message: `${req.body.username} is not valid username` });
             return;
         }
 
@@ -89,24 +85,38 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.delete('/:id', (req, res) => {
-
-    User.destroy({
-        where: {
-            id: req.params.id
+router.post('/logout', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            const userData = await req.session.destroy(() => {
+                res.status(204).end();
+            });
         }
-    })
-        .then(dbUserdata => {
-            if (!dbUserdata) {
-                res.status(404).json({ message: 'No user found with this id' });
-                return;
-            }
-            res.json(dbUserdata);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+        else {
+            res.status(404).end();
+        }
+    }
+    catch {
+        res.status(400).end();
+    }
 });
+
+//     User.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//         .then(dbUserdata => {
+//             if (!dbUserdata) {
+//                 res.status(404).json({ message: 'No user found with this id' });
+//                 return;
+//             }
+//             res.json(dbUserdata);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 module.exports = router;

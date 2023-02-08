@@ -4,13 +4,13 @@ async function editFromHandler(event) {
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1];
 
-        const tittle = document.querySelector('input[name="post-text"]').value;
+        const title = document.querySelector('input[name="post-text"]').value;
         const post_text = document.querySelector('textarea[name="post-text"]').value;
 
         const response = await fetch(`/api/posts${id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                tittle,
+                title,
                 post_text
             }),
             headers: {

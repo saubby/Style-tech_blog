@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequlize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -9,7 +9,7 @@ Comment.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autiIncrement:true
+        autoIncrement:true
     },
     comment_text: {
         type: DataTypes.STRING,

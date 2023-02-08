@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            attributes: ['id', 'post_text', 'tittle', 'created_at'],
+            attributes: ['id', 'post_text', 'title', 'created_at'],
             order: [['created_at', 'DESC']],
             include: [
                 { model: User, attributes: ['username'] },
@@ -24,7 +25,7 @@ router.get('/:id', async (req, res) => {
     try {
         const postData = await Post.findAOne({
             where: { id: req.params.id },
-            attributes: ['id', 'post_text', 'tittle', 'created_at'],
+            attributes: ['id', 'post_text', 'title', 'created_at'],
             order: [['created_at', 'DESC']],
             include: [
                 { model: User, attributes: ['username'] },
@@ -44,10 +45,10 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/:id', withAuth, (req, res) => {
 
     Post.create({
-        tittle: req.body.tittle,
+        title: req.body.title,
         post_text: req.body.post_text,
         user_id: req.session.user_id
     })
@@ -58,10 +59,10 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/', withAuth, (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
 
     Post.update({
-        tittle: req.body.tittle,
+        title: req.body.title,
         post_text: req.body.post_text
     },
     {
