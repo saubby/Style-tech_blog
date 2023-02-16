@@ -4,12 +4,12 @@ const postData = [
     {
         title: 'node.js',
         post_text: 'Node.js (Node) is an open source, cross-platform runtime environment for executing JavaScript code. Node is used extensively for server-side programming, making it possible for developers to use JavaScript for client-side and server-side code without needing to learn an additional language.',
-        user_id: 1
+        user_id: 1,
     },
     {
         title: 'Node.js work',
         post_text: 'A Node application runs in a single process. Node does not create a new thread for every request, as is often the case with traditional server-side programs',
-        user_id: 1
+        user_id: 1,
     },
     {
         title: 'NPM',

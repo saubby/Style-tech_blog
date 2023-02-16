@@ -12,7 +12,7 @@ const commentData = [
     },
     {
         comment_text: "Ahh, So thats the main backend service where javascript works on the server-side of the application.",
-        post_id: 2,
+        post_id: 3,
         user_id: 1,
     },
     {
@@ -22,13 +22,13 @@ const commentData = [
     },
     {
         comment_text: "Yeah! some interseting fact Over 1.3 million packages are available in the main NPM registry.",
-        post_id: 3,
+        post_id: 4,
         user_id: 3,
     },
     {
         comment_text: "Can you believe SQL, as a programming language, has been around for almost HALF A CENTURY!!!",
         post_id: 4,
-        user_id: 1,
+        user_id: 2,
     },
     {
         comment_text: "Amazing!! express.js can reduce the coding time by half and still help us build efficient web applications.",
