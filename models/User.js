@@ -15,14 +15,14 @@ User.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement:true
+        autoIncrement: true
     },
     username: {
         type: DataTypes.STRING,
-        allowNull: false
-        // validate: {
-        //     notEmpty: true,
-        // }
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     },
     email: {
         type: DataTypes.STRING,
@@ -40,22 +40,23 @@ User.init({
         }
     }
 },
-{
-    hooks: {
-        async beforeCreate(newUserData) {
-            newUserData.password = await bcrypt.hash(newUserData.password, 10);
-            return newUserData;
+    {
+        hooks: {
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            async beforeUpdate(updatedUserData) {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
         },
-        async beforeUpdate(updatedUserData) {
-            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-            return updatedUserData;
-        }
-    },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user'
-});
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+
+        modelName: 'user'
+    });
 
 module.exports = User;
