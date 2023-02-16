@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { response } = require('express');
+//const { response } = require('express');
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Comment.findAll()
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
@@ -45,4 +45,5 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = router; 
+
