@@ -1,22 +1,10 @@
-{{!-- <article class="post">
+<article class="post">
     <div class="title">
-        <h2>{{title}}</h2>
-        <h4>{{user.username}}</h4>
-        <span>{{format_date created_at}}</span>
+        <span><a href="/post/{{id}}">{{title}}</a></span><span style="float:right">Posted by {{user.username}} on
+            {{format_date created_at}}</span><br>
+        <span style="float:right">{{comments.length}} {{format_plural "comment" comments.length}}</span>
+    </div>
+    <div class="content">
         <p>{{post_text}}</p>
     </div>
-
-    <div class="meta">
-        <a href="/post/{{id}}">{{comments.length}} {{format_pural "comment" comments.length}}</a>
-    </div>
-</article> --}}
-
-    <article class="post">
-      <div class="title">
-        <span><a href="/post/{{id}}">{{title}}</a></span><span style="float:right">Posted by {{user.username}} on {{format_date created_at}}</span><br>
-        <span style="float:right">{{comments.length}} {{format_plural "comment" comments.length}}</span>
-      </div>
-      <div class = "content">
-          <p>{{post_text}}</p>
-      </div>
-    </article>
+</article>
