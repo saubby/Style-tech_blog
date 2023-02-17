@@ -8,22 +8,22 @@ html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: #2c2525;
+  color: #0c0c0d;
 }
 
 a {
   text-decoration: none;
-  color: #201068;
+  color: #1f07f6;
   font-weight: bold;
   transition: color .1s;
 }
 
 a:hover {
-  color: #7cb6f1;
+  color: #d50505;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #2860a3;
   border: 0;
   padding: 1%;
   color: white;
@@ -34,7 +34,7 @@ button {
 }
 
 button:hover {
-  background-color: #187efa;
+  background-color: #050c1a;
 }
 
 .post-list {
@@ -47,13 +47,13 @@ textarea,
 input {
   padding: .5%;
   border-radius: 5px;
-  border: 1px solid #ffb0b0;
+  border: 1px solid #9f8181;
 }
 
 textarea:focus,
 input:focus {
   outline: none;
-  border: 1px solid #c687f2;
+  border: 1px solid #341c46;
 }
 
 textarea {
@@ -79,19 +79,19 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cecdcd;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1%;
-  background-color: #a6a4a4;
+  background-color: #4e2121;
 }
 
 header h1 {
   font-size: 1em;
-  border: 2px outset #c6c4c4;
+  border: 2px outset #7d5353;
   border-radius: 5px;
-  background-color: #989898;
+  background-color: #c9c9c9;
   padding: 1.25rem;
 }
 
@@ -112,7 +112,7 @@ nav {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #2b7fe5;
+  color: #2269d4;
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -121,15 +121,15 @@ nav {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: #333946;
 }
 
 .delete-post-btn {
-  background-color: #fe1c1c;
+  background-color: #d61717;
 }
 
 .delete-post-btn:hover {
-  background-color: #9e3b23;
+  background-color: #f7613c;
 }
 
 .post {
@@ -140,13 +140,13 @@ nav {
 .post .title {
   font-style: italic;
   font-size: 1.25rem;
-  color: #272626;
+  color: #767676;
 }
 
 .post .title span {
   font-style: italic;
   font-size: 0.8rem;
-  color: #5e535a36;
+  color: #503301fc;
 }
 
 .edit-link {
@@ -155,12 +155,12 @@ nav {
 }
 
 .upvote-btn {
-  background-color: #b8da48;
+  background-color: #80a112;
   transition: background-color .1s;
 }
 
 .upvote-btn:hover {
-  background-color: #1b2d1a;
+  background-color: #3cf532;
 }
 
 .comment-form {
@@ -173,7 +173,7 @@ nav {
 }
 
 .comment:nth-child(odd) {
-  background-color: #787979;
+  background-color: #e4c7c7;
 }
 
 .comment .meta {
@@ -201,7 +201,7 @@ textarea {
 }
 
 footer {
-  border-top: 1px solid #897b7b;
+  border-top: 1px solid #bebebe;
   display: flex;
   justify-content: center;
   padding: 1%;
